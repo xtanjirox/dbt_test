@@ -1,0 +1,17 @@
+version: 2
+
+models:
+  - name: customer_orders
+    description: Customer order summary with total spend
+    columns:
+      - name: customer_id
+        description: Primary key
+        tests:
+          - unique
+          - not_null
+      - name: customer_name
+      - name: country
+      - name: total_orders
+      - name: total_amount
+      - name: first_order_date
+      - name: last_order_date

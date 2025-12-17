@@ -1,0 +1,37 @@
+version: 2
+
+sources:
+  - name: raw
+    description: Raw seed data
+    tables:
+      - name: customers
+        description: Customer information
+      - name: orders
+        description: Order transactions
+
+models:
+  - name: stg_customers
+    description: Staging layer for customers
+    columns:
+      - name: customer_id
+        description: Primary key
+        tests:
+          - unique
+          - not_null
+      - name: customer_name
+      - name: signup_date
+      - name: country
+
+  - name: stg_orders
+    description: Staging layer for orders
+    columns:
+      - name: order_id
+        description: Primary key
+        tests:
+          - unique
+          - not_null
+      - name: customer_id
+        tests:
+          - not_null
+      - name: order_date
+      - name: amount

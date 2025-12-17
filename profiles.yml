@@ -1,0 +1,17 @@
+dbt_monitoring_test:
+  target: dev
+  outputs:
+    dev:
+      type: duckdb
+      path: './dev_database.duckdb'
+      threads: 4
+    
+    prod:
+      type: duckdb
+      path: './prod_database.duckdb'
+      threads: 8
+    
+    test:
+      type: duckdb
+      path: ':memory:'
+      threads: 2
